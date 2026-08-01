@@ -1,0 +1,87 @@
+erDiagram
+    PATIENT ||--o{ APPOINTMENT : "schedules"
+    PATIENT ||--o{ TREATMENT : "receives"
+    PATIENT ||--o{ PAYMENT : "makes"
+    PATIENT {
+        int PatientID PK
+        varchar FirstName
+        varchar LastName
+        date DateOfBirth
+        char Gender
+        varchar Phone
+        varchar Email
+        varchar Address
+        date RegistrationDate
+    }
+
+    DOCTOR ||--o{ APPOINTMENT : "attends"
+    DOCTOR ||--o{ TREATMENT : "prescribes"
+    DOCTOR {
+        int DoctorID PK
+        varchar FirstName
+        varchar LastName
+        varchar Specialization
+        varchar Phone
+        varchar Email
+        varchar LicenseNumber
+        decimal HourlyRate
+    }
+
+    MEDICINE ||--o{ TREATMENT_MEDICINE : "used_in"
+    MEDICINE {
+        int MedicineID PK
+        varchar MedicineName
+        varchar Category
+        decimal Price
+        varchar Description
+        int StockQuantity
+        date ExpiryDate
+    }
+
+    APPOINTMENT }|--|| PATIENT : "patient"
+    APPOINTMENT }|--|| DOCTOR : "doctor"
+    APPOINTMENT {
+        int AppointmentID PK
+        int PatientID FK
+        int DoctorID FK
+        date AppointmentDate
+        time AppointmentTime
+        varchar Status
+        varchar Reason
+        varchar Notes
+    }
+
+    TREATMENT ||--o{ TREATMENT_MEDICINE : "includes"
+    TREATMENT }|--|| PATIENT : "patient"
+    TREATMENT }|--|| DOCTOR : "doctor"
+    TREATMENT {
+        int TreatmentID PK
+        int PatientID FK
+        int DoctorID FK
+        int AppointmentID FK
+        date TreatmentDate
+        varchar TreatmentType
+        varchar Description
+        decimal Cost
+    }
+
+    PAYMENT }|--|| PATIENT : "patient"
+    PAYMENT }|--|| TREATMENT : "treatment"
+    PAYMENT {
+        int PaymentID PK
+        int PatientID FK
+        int TreatmentID FK
+        decimal Amount
+        date PaymentDate
+        varchar PaymentMethod
+        varchar Status
+    }
+
+    TREATMENT_MEDICINE {
+        int TreatmentMedicineID PK
+        int TreatmentID FK
+        int MedicineID FK
+        int Quantity
+        varchar Dosage
+        varchar Instructions
+    }
