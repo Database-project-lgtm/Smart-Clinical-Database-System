@@ -106,11 +106,12 @@ To deploy and test the Smart Clinic Database System, follow these technical step
 
 | Task | Responsibility | Member |
 |---|---|---|
-| Task 1: Database Design | Designed the ER/EER diagram, identified entities and attributes, defined primary and foreign keys, specified relationships and cardinalities, and implemented the generalization/specialization hierarchy | **SULTAN ALJOHANI** (240035689) |
-| Task 2: Database Implementation | Created the relational tables with suitable data types and constraints and inserted the required sample records | **Amjad Najmi** (240020509) |
-| Task 3: SQL Operations | Developed and tested the required SELECT, JOIN, nested, aggregate, UPDATE, DELETE, VIEW, and TRIGGER operations | **Abdulaziz Alharbi** (250021379) |
-| Task 4: Reflection | Jointly wrote the 300–500-word reflection addressing teamwork, challenges, design decisions, learning outcomes, and possible future improvements | **All Members** |
-| Final Report and Documentation | Compiled the final report, organized the screenshots, reviewed the repository, and prepared the submission files | **All Members** |
+| Group Leadership and Repository Management | <ul><li>Group Leader</li><li>Repository Manager</li><li>Team coordination</li></ul> | **SULTAN ALJOHANI** (240035689) |
+| Task 1: Database Design | <ul><li>ER/EER diagram design</li><li>Entity and attribute identification</li><li>Primary and foreign key definitions</li><li>Generalization/specialization hierarchy</li></ul> | **SULTAN ALJOHANI** (240035689) |
+| Task 2: Database Implementation | <ul><li>Relational table creation</li><li>Data type and constraint specification</li><li>Sample record insertion</li></ul> | **Amjad Najmi** (240020509) |
+| Task 3: SQL Operations | <ul><li>SELECT and JOIN operations</li><li>Nested and aggregate queries</li><li>UPDATE, DELETE, VIEW, and TRIGGER implementation</li></ul> | **Abdulaziz Alharbi** (250021379) |
+| Task 4: Reflection | <ul><li>Teamwork and challenge analysis</li><li>Design decision documentation</li><li>Learning outcomes and future improvements</li></ul> | **All Members** |
+| Final Report and Documentation | <ul><li>Final report compilation</li><li>Screenshot organization</li><li>Repository review and submission prep</li></ul> | **All Members** |
 
 ---
 
