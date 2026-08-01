@@ -52,21 +52,23 @@ This structure reduces repeated data and represents the shared characteristics o
 ## Repository Structure
 
 ```text
-Smart-Clinic-Database-System/
+Smart-Clinic-Database-System
 |-- README.md
 |-- database/
 |   `-- smart_clinic_database.sql
-|-- docs/
+|-- Report_docs/
 |   |-- Smart_Clinic_Final_Report.docx
-|   |-- Smart_Clinic_Mid_Project_Progress_Report.docx
-|   `-- Smart_Clinic_Team_Contribution_Record.docx
+|   |-- Smart_Clinic_Mid_Project_Progress_
+|   `-- Smart_Clinic_Team_Contribution_Rec
 |-- diagrams/
-|   `-- smart_clinic_erd.png
-`-- evidence/
+|   |-- er_diagram.mmd
+|   |-- er_diagram.png
+|   |-- er_diagram_info.txt
+|-- evidence/
     `-- screenshots/
 ```
 
-The complete ER/EER diagram is available in [`diagrams/smart_clinic_erd.png`](diagrams/smart_clinic_erd.png).
+The complete ER/EER diagram is available in [`diagrams/er_diagram.png`](diagrams/er_diagram.png).
 
 ---
 
