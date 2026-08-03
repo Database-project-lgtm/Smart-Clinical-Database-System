@@ -1,120 +1,212 @@
 # Smart Clinic Database System
 
-## IT244 – Database Design and Implementation Project
+## Project Status
 
-The **Smart Clinic Database System** demonstrates the design and implementation of a complete relational database for a private clinic. The project covers ER/EER modeling, relational schema design, SQL implementation, sample data, and advanced database operations using MySQL.
+**Completed**
 
----
-
-## Team Members
-
-| Name | Student ID |
-|---|---:|
-| SULTAN ALJOHANI | 240035689 |
-| Amjad Najmi | 240020509 |
-| Abdulaziz Alharbi | 250021379 |
-
----
+The Smart Clinic Database System has been fully designed, implemented, tested, and documented for the Introduction to Database course project. The final solution includes the EER model, relational schema, MySQL implementation, Saudi-context sample data, required SQL operations, execution evidence, project reflection, progress report, and final report.
 
 ## Project Overview
 
-The system is designed to manage patient records, doctor information and schedules, appointments, treatments, prescribed medicines, and payments. It replaces manual record-keeping with a structured and queryable database that supports data consistency, efficient retrieval, and reliable reporting.
+A private outpatient clinic previously managed patient information manually, making it difficult to organize appointments, treatments, prescriptions, medicine inventory, and payments. This project provides a normalized relational database that improves data organization, retrieval, consistency, and reporting.
 
----
+The system was implemented in **MySQL 8.0.16 or later** and tested through **MySQL Workbench**. It uses the InnoDB storage engine, `utf8mb4` character encoding, foreign-key enforcement, transactions, views, and triggers.
 
-## Database Entities
+## Project Objectives
 
-The design contains **six main operational entities**, **one associative entity**, and the **PERSON supertype** used in the EER hierarchy.
+- Design a complete ER/EER model for a smart clinic.
+- Convert the conceptual model into a normalized relational schema.
+- Implement the database using MySQL.
+- Apply primary keys, foreign keys, unique constraints, checks, and controlled values.
+- Populate every main table with at least five logically connected fictional Saudi records.
+- Execute and verify the required SQL operations.
+- Provide readable MySQL Workbench evidence for tables and query results.
+- Maintain an organized GitHub repository with meaningful commit history.
 
-| Entity | Type | Description |
-|---|---|---|
-| PERSON | Supertype | Stores personal attributes shared by patients and doctors |
-| PATIENT | Main entity / subtype | Stores patient-specific information |
-| DOCTOR | Main entity / subtype | Stores doctor credentials and specialization |
-| MEDICINE | Main entity | Stores available medicine information |
-| APPOINTMENT | Main entity | Links patients and doctors through scheduled visits |
-| TREATMENT | Main entity | Stores treatment details and associated costs |
-| PAYMENT | Main entity | Stores financial transactions related to clinic services |
-| TREATMENT_MEDICINE | Associative entity | Resolves the many-to-many relationship between treatments and medicines |
+## Team Members
 
-When the PERSON supertype is implemented as a separate relation, the physical database contains **eight related tables**.
+| Student Name | Student ID | Primary Contribution |
+|---|---:|---|
+| JOMANAH SAEED OTAIF | 250042243 | Group Leader, Repository Management, File Organization, README Updates, and Integration Review |
+| Cyrine Abdullah Alghamdi | 240015574 | Database Design, Entity Analysis, Relationships, Cardinalities, EER Structure, Assumptions, and Normalization Review |
+| Leen Sultan Al Shmmari | 240016807 | MySQL Schema Review, SQL Operations, View, Trigger, Transactions, Testing, and Execution Verification |
+| Bedour Hamad Alrasheedi | 230009312 | MySQL Workbench Screenshots, Testing Evidence, Report Formatting, Quality Review, and Submission Checklist |
 
----
+## Database Design
 
-## EER Feature
+The database contains **11 normalized tables**:
 
-The EER design includes a **generalization/specialization hierarchy**. PERSON is the supertype and contains the attributes shared by PATIENT and DOCTOR, including `FirstName`, `LastName`, `Phone`, `Email`, and `DateOfBirth`. PATIENT and DOCTOR are subtypes that inherit these common attributes and contain their own role-specific attributes.
+| Table | Purpose |
+|---|---|
+| `person` | Stores shared identity and contact information. |
+| `patient` | Stores patient registration, blood type, allergies, and emergency-contact details. |
+| `employee` | Stores shared employment information for clinic staff. |
+| `doctor` | Stores doctor licenses, specialties, rooms, and consultation fees. |
+| `receptionist` | Stores receptionist shifts and extension numbers. |
+| `appointment` | Links patients and doctors at scheduled times. |
+| `treatment` | Stores diagnoses, treatment notes, and follow-up dates. |
+| `prescription` | Stores prescriptions issued for treatments. |
+| `prescription_item` | Resolves the prescription-to-medicine relationship and stores dosage details. |
+| `medicine` | Stores medicine details, stock quantities, reorder levels, and prices. |
+| `payment` | Stores one or more payments associated with appointments. |
 
-This structure reduces repeated data and represents the shared characteristics of patients and doctors more accurately.
+## EER Specialization
 
----
+The project implements a two-level specialization hierarchy:
+
+```text
+Person
+|-- Patient
+`-- Employee
+    |-- Doctor
+    `-- Receptionist
+```
+
+The specialization is modeled as **total and disjoint**. Subtype identifiers are reused as both primary keys and foreign keys, which avoids repeating identity and contact attributes.
+
+## Main Relationships
+
+- One patient can have many appointments.
+- One doctor can attend many appointments.
+- One appointment can create one or more treatment records.
+- One treatment can have zero or one prescription.
+- One prescription contains one or more prescription items.
+- One medicine can appear in many prescription items.
+- One appointment can have zero, one, or multiple payment records.
+
+## Main Features
+
+- Eleven normalized MySQL tables.
+- Primary-key and foreign-key enforcement.
+- `NOT NULL`, `UNIQUE`, `CHECK`, and `ENUM` constraints.
+- Unique doctor scheduling at the same timestamp.
+- Fictional Saudi names, `+966` telephone formats, Gmail addresses, and Saudi cities.
+- Multiple payments per appointment for partial, insurance, and mixed-payment scenarios.
+- Composite primary key in `prescription_item`.
+- Transaction-based testing using `START TRANSACTION` and `ROLLBACK`.
+- MySQL Workbench screenshots for database creation, table population, SQL code, and query results.
+
+## SQL Operations Completed
+
+The final SQL script includes and verifies:
+
+- Basic `SELECT` statements.
+- Multi-table `JOIN` queries.
+- Nested queries.
+- Aggregate functions with `GROUP BY`.
+- `UPDATE` statements.
+- `DELETE` statements.
+- A reporting `VIEW`.
+- A stock-control `TRIGGER`.
+
+### Reporting View
+
+```text
+vw_appointment_summary
+```
+
+The view provides one reporting row per appointment with patient, doctor, specialty, reason, appointment status, consultation fee, amount paid, and calculated payment status.
+
+### Stock-Control Trigger
+
+```text
+trg_prescription_item_before_insert
+```
+
+Before inserting a prescription item, the trigger:
+
+1. Reads the current medicine stock.
+2. Rejects an invalid medicine reference.
+3. Rejects non-positive prescription quantities.
+4. Prevents a prescription quantity from exceeding available stock.
+5. Deducts the approved quantity from medicine inventory.
+
+## System Workflow
+
+1. A person record is created.
+2. The person is registered as either a patient or an employee.
+3. An employee is further registered as either a doctor or receptionist.
+4. An appointment links one patient with one doctor at a scheduled date and time.
+5. A treatment record is created for a valid appointment.
+6. A prescription may be issued for the treatment.
+7. Prescription items identify the required medicines, dosage, frequency, duration, and quantity.
+8. The trigger validates and deducts medicine stock automatically.
+9. One or more payments may be recorded for the appointment.
+10. The reporting view combines appointment, patient, doctor, and payment information.
+
+## Business Rules and Assumptions
+
+- The clinic operates as one physical branch with one shared medicine inventory.
+- Every appointment belongs to exactly one patient and one doctor.
+- A doctor cannot have two appointments at the same timestamp.
+- A treatment must belong to a valid appointment.
+- A treatment has at most one prescription.
+- A prescription may contain multiple medicines.
+- Partial payments and multiple payments are allowed.
+- Medicine stock is reduced when a prescription item is inserted.
+- `person_type` and `employee_role` support subtype integrity.
 
 ## Repository Structure
 
 ```text
-Smart-Clinic-Database-System
+Smart-Clinic-Database-System/
 |-- README.md
 |-- database/
 |   `-- smart_clinic_database.sql
-|-- Report_docs/
-|   |-- Smart_Clinic_Final_Report.docx
-|   |-- Smart_Clinic_Mid_Project_Progress_
-|   `-- Smart_Clinic_Team_Contribution_Rec
+|-- docs/
+|   |-- Smart_Clinic_Mid_Project_Progress_Report.docx
+|   |-- Smart_Clinic_Mid_Project_Progress_Report.pdf
+|   |-- Introduction to DB-Course Project v2 (Finale Report).docx
+|   `-- Introduction to DB-Course Project v2 (Finale Report).pdf
 |-- diagrams/
-|   |-- er_diagram.mmd
-|   |-- er_diagram.png
-|   |-- er_diagram_info.txt
-|-- evidence/
+|   `-- smart_clinic_erd.png
+`-- evidence/
     `-- screenshots/
 ```
 
-The complete ER/EER diagram is available in [`diagrams/er_diagram.png`](diagrams/er_diagram.png).
+## How to Run the Project
 
----
+1. Install MySQL Server 8.0.16 or later.
+2. Install and open MySQL Workbench.
+3. Open `database/smart_clinic_database.sql`.
+4. Connect using an account with permission to create databases, tables, views, and triggers.
+5. Execute the script from top to bottom.
+6. Confirm that the database `smart_clinic_db` is created.
+7. Confirm that the database contains 11 tables.
+8. Run the verification statements at the end of the script.
+9. Confirm that `vw_appointment_summary` and `trg_prescription_item_before_insert` exist.
+10. Review the evidence in `evidence/screenshots/`.
 
-## SQL Implementation
+## Testing and Evidence
 
-The file [`database/smart_clinic_database.sql`](database/smart_clinic_database.sql) includes:
+The implementation was executed in MySQL Workbench. The evidence includes:
 
-- Database creation and selection
-- Table creation with primary keys and foreign keys
-- Appropriate data types and integrity constraints
-- Sample data insertion with at least five records in each required table
-- Basic `SELECT` queries
-- Multi-table `JOIN` queries
-- Nested queries and subqueries
-- Aggregate functions with `GROUP BY`
-- Demonstration of `UPDATE` and `DELETE` operations
-- View creation
-- Trigger creation and testing
+- Database and table creation.
+- Supertype and subtype definitions.
+- Foreign keys and constraints.
+- Population of all main tables.
+- Verification of 11 database tables.
+- SELECT, JOIN, nested, and GROUP BY results.
+- UPDATE and DELETE demonstrations.
+- Transaction rollback verification.
+- View output.
+- Trigger creation and medicine-stock deduction testing.
 
----
+## Project Deliverables
 
-## How to Run
+- Complete MySQL database script.
+- ER/EER diagram.
+- Mid-project progress report in Word and PDF formats.
+- Final project report in Word and PDF formats.
+- MySQL Workbench execution screenshots.
+- GitHub repository with meaningful commit history.
 
-To deploy and test the Smart Clinic Database System, follow these technical steps:
+## Project Artifacts
 
-1.  **Environment Setup**: Ensure **MySQL Server 8.0+** and **MySQL Workbench** are installed and running on your local machine.
-2.  **Database Initialization**: Open and execute the `database/smart_clinic_database.sql` script. This will automatically create the `SmartClinic` schema, define all relational tables with appropriate constraints, and populate them with initial sample data.
-3.  **Schema Verification**: Run `SHOW TABLES;` to confirm the creation of the 8 core tables (PERSON, PATIENT, DOCTOR, MEDICINE, APPOINTMENT, TREATMENT, PAYMENT, and TREATMENT_MEDICINE).
-4.  **Operational Testing**: Execute the labeled SQL queries within the script to verify the implementation of multi-table JOINs, nested subqueries, aggregate functions, and the functionality of implemented Views and Triggers.
-5.  **Data Integrity**: The script includes specific `UPDATE` and `DELETE` statements to demonstrate referential integrity and constraint enforcement within the relational model.
+- **GitHub Repository:** https://github.com/ProjectGroup-alt/Smart-Clinic-Database-System
+- **Live Report Folder:** https://drive.google.com/drive/folders/1D4glyIDAZpNQ6mAKQrBYw34vhKFkBGym
+- **Google Colab:** Not applicable.
 
----
+## Academic Notice
 
-## Task Distribution Among Team Members
-
-| Task | Responsibility | Member |
-|---|---|---|
-| Group Leadership and Repository Management | <ul><li>Group Leader</li><li>Repository Manager</li><li>Team coordination</li><li>Repository review and submission prep</li></ul> | **SULTAN ALJOHANI** (240035689) |
-| Task 1: Database Design | <ul><li>ER/EER diagram design</li><li>Entity and attribute identification</li><li>Primary and foreign key definitions</li><li>Generalization/specialization hierarchy</li></ul> | **SULTAN ALJOHANI** (240035689) |
-| Task 2: Database Implementation | <ul><li>Relational table creation</li><li>Data type and constraint specification</li><li>Sample record insertion</li></ul> | **Amjad Najmi** (240020509) |
-| Task 3: SQL Operations | <ul><li>SELECT and JOIN operations</li><li>Nested and aggregate queries</li><li>UPDATE, DELETE, VIEW, and TRIGGER implementation</li></ul> | **Abdulaziz Alharbi** (250021379) |
-| Task 4: Reflection | <ul><li>Teamwork and challenge analysis</li><li>Design decision documentation</li><li>Learning outcomes and future improvements</li></ul> | **All Members** |
-| Final Report and Documentation | <ul><li>Final report compilation</li><li>Screenshot organization</li></ul> | **All Members** |
-
----
-
-## Project Status
-
-The repository structure, database description, EER feature, implementation scope, operating instructions, and team responsibilities are documented consistently in this README. Final technical validation should be completed by executing `database/smart_clinic_database.sql` and comparing the generated objects and results with the final ER/EER diagram and report.
+All patient, employee, appointment, treatment, medicine, prescription, and payment data in this repository are fictional and were created only for academic coursework.
