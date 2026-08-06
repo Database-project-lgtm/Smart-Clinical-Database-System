@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-08-06T00:00:00.000Z" agent="OpenAI Codex" version="24.7.17" type="device">
+  <diagram id="smart-clinic-eer" name="Smart Clinic EER">
+    <mxGraphModel dx="1200" dy="2100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="2100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+    <mxCell id="title" value="&lt;div style=&quot;font-family:Arial;font-size:31px;font-weight:700;color:#0f172a;text-align:center;&quot;&gt;Smart Clinic Database System&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+      <mxGeometry x="180" y="20" width="840" height="42" as="geometry"/>
+    </mxCell>
+    <mxCell id="subtitle" value="&lt;div style=&quot;font-family:Arial;font-size:14px;color:#334155;text-align:center;&quot;&gt;Complete Enhanced Entity–Relationship Diagram • MySQL 8.0 • 10 Relations&lt;/div&gt;" style="html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+      <mxGeometry x="215" y="65" width="770" height="28" as="geometry"/>
+    </mxCell>
+    <mxCell id="legend" value="&lt;div style=&quot;font-family:Arial;color:#0f172a;font-size:11px;line-height:1.45;&quot;&gt;
+  &lt;div style=&quot;background:#334155;color:#ffffff;font-size:16px;font-weight:700;padding:9px;&quot;&gt;Diagram Legend&lt;/div&gt;
+  &lt;div style=&quot;padding:9px 11px;&quot;&gt;&lt;b&gt;Key notation&lt;/b&gt;&lt;br/&gt;
+  &lt;span style=&quot;color:#dc2626;font-weight:700;&quot;&gt;PK&lt;/span&gt; Primary key &amp;nbsp;&amp;nbsp;
+  &lt;span style=&quot;color:#2563eb;font-weight:700;&quot;&gt;FK&lt;/span&gt; Foreign key &amp;nbsp;&amp;nbsp;
+  &lt;span style=&quot;color:#7c3aed;font-weight:700;&quot;&gt;UK&lt;/span&gt; Unique key&lt;br/&gt;&lt;br/&gt;
+  &lt;b&gt;Cardinality&lt;/b&gt;&lt;br/&gt;1 = exactly one &amp;nbsp; • &amp;nbsp; 0..1 = zero or one &amp;nbsp; • &amp;nbsp; 0..N = zero or many&lt;br/&gt;&lt;br/&gt;
+  &lt;b&gt;Entity roles&lt;/b&gt;&lt;br/&gt;
+  &lt;span style=&quot;color:#0f766e;&quot;&gt;■&lt;/span&gt; identity/subtype &amp;nbsp;
+  &lt;span style=&quot;color:#2563eb;&quot;&gt;■&lt;/span&gt; clinical core &amp;nbsp;
+  &lt;span style=&quot;color:#7c3aed;&quot;&gt;■&lt;/span&gt; prescribing&lt;br/&gt;
+  &lt;span style=&quot;color:#15803d;&quot;&gt;■&lt;/span&gt; inventory &amp;nbsp;
+  &lt;span style=&quot;color:#d97706;&quot;&gt;■&lt;/span&gt; finance &amp;nbsp;
+  &lt;span style=&quot;color:#334155;&quot;&gt;■&lt;/span&gt; reference&lt;br/&gt;&lt;br/&gt;
+  PRESCRIPTION_ITEM resolves the Prescription ↔ Medication M:N relationship.&lt;/div&gt;
+&lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#334155;" vertex="1" parent="1">
+      <mxGeometry x="20" y="115" width="300" height="300" as="geometry"/>
+    </mxCell>
+    <mxCell id="clinic_person" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#0f766e;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      CLINIC_PERSON
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;SUPERTYPE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;person_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;national_identifier&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;CHAR(10)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;first_name&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(45)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;last_name&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(65)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;birth_date&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATE&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;sex&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;mobile_number&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(13)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;email_address&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(120) NULL&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;city&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(60)&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;CHECK: national identifier and Saudi mobile formats&lt;/div&gt;&lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;Specialization: total and disjoint at application level&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#0f766e;" vertex="1" parent="1">
+      <mxGeometry x="365" y="115" width="400" height="330" as="geometry"/>
+    </mxCell>
+    <mxCell id="specialty" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#334155;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      SPECIALTY
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;REFERENCE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;specialty_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;SMALLINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;specialty_name&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(80)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;clinic_zone&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(20)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;standard_slot_minutes&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;SMALLINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;CHECK: standard slot is 15–120 minutes&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#334155;" vertex="1" parent="1">
+      <mxGeometry x="845" y="180" width="330" height="205" as="geometry"/>
+    </mxCell>
+    <mxCell id="patient" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#0d9488;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      PATIENT
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;SUBTYPE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#0f766e;&quot;&gt;PK/FK&lt;/span&gt;&lt;b&gt;patient_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;medical_record_no&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(12)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;blood_group&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;insurance_company&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(100) NULL&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;emergency_contact_name&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(100)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;emergency_mobile&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(13)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;registered_on&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATE&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;patient_id = CLINIC_PERSON.person_id&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#0d9488;" vertex="1" parent="1">
+      <mxGeometry x="45" y="590" width="360" height="300" as="geometry"/>
+    </mxCell>
+    <mxCell id="doctor" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#0d9488;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      DOCTOR
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;SUBTYPE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#0f766e;&quot;&gt;PK/FK&lt;/span&gt;&lt;b&gt;doctor_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#2563eb;&quot;&gt;FK&lt;/span&gt;&lt;b&gt;specialty_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;SMALLINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;professional_license&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(25)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;office_code&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(12)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;hired_on&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATE&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;consultation_fee&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DECIMAL(9,2)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;availability_status&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;doctor_id = CLINIC_PERSON.person_id&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#0d9488;" vertex="1" parent="1">
+      <mxGeometry x="750" y="590" width="380" height="320" as="geometry"/>
+    </mxCell>
+    <mxCell id="appointment" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#2563eb;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      APPOINTMENT
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;CORE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;appointment_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#2563eb;&quot;&gt;FK&lt;/span&gt;&lt;b&gt;patient_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#2563eb;&quot;&gt;FK&lt;/span&gt;&lt;b&gt;doctor_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;starts_at&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATETIME&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;planned_minutes&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;SMALLINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;appointment_status&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;booking_source&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;visit_reason&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(250)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;booked_at&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;TIMESTAMP&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;UK (doctor_id, starts_at) • UK (patient_id, starts_at)&lt;/div&gt;&lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;CHECK: planned duration is 15–120 minutes&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#2563eb;" vertex="1" parent="1">
+      <mxGeometry x="405" y="950" width="390" height="340" as="geometry"/>
+    </mxCell>
+    <mxCell id="consultation" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#1d4ed8;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      CONSULTATION
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;CLINICAL&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;consultation_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#2563eb;&quot;&gt;FK/UK&lt;/span&gt;&lt;b&gt;appointment_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;consulted_at&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATETIME&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;diagnosis&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(220)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;assessment_notes&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(600)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;service_fee&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DECIMAL(9,2)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;follow_up_date&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATE NULL&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;UNIQUE appointment_id enforces one consultation per appointment&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#1d4ed8;" vertex="1" parent="1">
+      <mxGeometry x="25" y="1370" width="360" height="300" as="geometry"/>
+    </mxCell>
+    <mxCell id="prescription" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#7c3aed;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      PRESCRIPTION
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;CLINICAL&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;prescription_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#2563eb;&quot;&gt;FK&lt;/span&gt;&lt;b&gt;consultation_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;issued_at&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATETIME&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;general_instructions&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(400) NULL&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;ON DELETE CASCADE from CONSULTATION&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#7c3aed;" vertex="1" parent="1">
+      <mxGeometry x="420" y="1420" width="360" height="230" as="geometry"/>
+    </mxCell>
+    <mxCell id="payment" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#d97706;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      PAYMENT
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;FINANCE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;payment_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#2563eb;&quot;&gt;FK&lt;/span&gt;&lt;b&gt;appointment_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;amount&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DECIMAL(9,2)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;recorded_at&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DATETIME&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;payment_method&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;payment_status&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;payer_type&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#7c3aed;&quot;&gt;UK&lt;/span&gt;&lt;b&gt;receipt_number&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(35) NULL&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;CHECK: amount &gt; 0&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#d97706;" vertex="1" parent="1">
+      <mxGeometry x="815" y="1370" width="360" height="300" as="geometry"/>
+    </mxCell>
+    <mxCell id="prescription_item" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#7c3aed;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      PRESCRIPTION_ITEM
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;ASSOCIATIVE&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#0f766e;&quot;&gt;PK/FK&lt;/span&gt;&lt;b&gt;prescription_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#0f766e;&quot;&gt;PK/FK&lt;/span&gt;&lt;b&gt;medication_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;dose_description&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(100)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;frequency_per_day&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;TINYINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;course_days&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;SMALLINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;units_dispensed&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;SMALLINT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;administration_route&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;item_instructions&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(300) NULL&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;Composite PK (prescription_id, medication_id)&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#7c3aed;" vertex="1" parent="1">
+      <mxGeometry x="260" y="1740" width="450" height="320" as="geometry"/>
+    </mxCell>
+    <mxCell id="medication" value="&lt;div style=&quot;font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:10px;line-height:1.15;&quot;&gt;
+    &lt;div style=&quot;background:#15803d;color:#ffffff;padding:9px 10px;font-size:16px;font-weight:700;text-align:left;&quot;&gt;
+      MEDICATION
+      &lt;span style=&quot;float:right;border:1px solid rgba(255,255,255,.65);border-radius:10px;padding:2px 7px;font-size:8px;letter-spacing:.4px;&quot;&gt;INVENTORY&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;table style=&quot;width:100%;border-collapse:collapse;table-layout:auto;&quot;&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;font-weight:700;color:#dc2626;&quot;&gt;PK&lt;/span&gt;&lt;b&gt;medication_id&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;generic_name&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(100)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;brand_name&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(100)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;strength&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;VARCHAR(35)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;dosage_form&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;ENUM&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;unit_price&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;DECIMAL(9,2)&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;stock_on_hand&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#f8fafc;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;reorder_level&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;INT&lt;/td&gt;
+    &lt;/tr&gt;&lt;tr style=&quot;background:#ffffff;&quot;&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;white-space:nowrap;&quot;&gt;&lt;span style=&quot;display:inline-block;width:42px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;b&gt;requires_prescription&lt;/b&gt;&lt;/td&gt;
+      &lt;td style=&quot;padding:5px 7px;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;color:#475569;&quot;&gt;BOOLEAN&lt;/td&gt;
+    &lt;/tr&gt;&lt;/table&gt;
+    &lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;UK (brand_name, strength, dosage_form)&lt;/div&gt;&lt;div style=&quot;padding:3px 8px;color:#475569;font-size:9px;font-weight:600;&quot;&gt;CHECK: price, stock, and reorder level are nonnegative&lt;/div&gt;
+  &lt;/div&gt;" style="html=1;whiteSpace=wrap;rounded=1;arcSize=3;strokeWidth=2;fillColor=#ffffff;align=left;verticalAlign=top;spacing=0;shadow=1;overflow=hidden;strokeColor=#15803d;" vertex="1" parent="1">
+      <mxGeometry x="770" y="1740" width="405" height="320" as="geometry"/>
+    </mxCell>
+    <mxCell id="isa" value="&lt;div style=&quot;color:#ffffff;font-family:Arial;text-align:center;font-weight:700;font-size:15px;line-height:1.25;&quot;&gt;IS-A&lt;br/&gt;&lt;span style=&quot;font-size:9px;&quot;&gt;TOTAL • DISJOINT&lt;/span&gt;&lt;/div&gt;" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;fillColor=#0f766e;strokeColor=#0f766e;strokeWidth=2;" vertex="1" parent="1">
+      <mxGeometry x="520" y="485" width="110" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_clinic_isa" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0f766e;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="clinic_person" target="isa">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_isa_patient" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0f766e;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="isa" target="patient">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_isa_doctor" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0f766e;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="isa" target="doctor">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_specialty_doctor" value="classifies" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#475569;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.72;entryY=0;" edge="1" parent="1" source="specialty" target="doctor">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_patient_appointment" value="books" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.2;entryY=0;" edge="1" parent="1" source="patient" target="appointment">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_doctor_appointment" value="attends" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" parent="1" source="doctor" target="appointment">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_appointment_consultation" value="produces" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.2;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="appointment" target="consultation">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_appointment_payment" value="receives" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#d97706;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.8;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="appointment" target="payment">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_consultation_prescription" value="issues" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c3aed;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="consultation" target="prescription">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_prescription_item" value="contains" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c3aed;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="prescription" target="prescription_item">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_medication_item" value="dispensed as" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c3aed;strokeWidth=2;endArrow=none;startArrow=none;fontSize=11;fontStyle=1;fontColor=#334155;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="medication" target="prescription_item">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_clinic_1" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="550" y="452" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_patient_01" value="0..1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="181" y="555" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_doctor_01" value="0..1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="906" y="555" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_specialty_1" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="995" y="397" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_doctor_n_specialty" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="989" y="555" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_patient_1" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="210" y="900" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_appt_n_patient" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="454" y="915" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_doctor_1" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="925" y="920" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_appt_n_doctor" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="694" y="915" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_appt_1_cons" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="470" y="1303" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_cons_01" value="0..1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="135" y="1335" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_appt_1_pay" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="700" y="1303" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_pay_n" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="980" y="1335" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_cons_1_rx" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="392" y="1495" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_rx_n" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="392" y="1532" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_rx_1_item" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="584" y="1668" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_item_n" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="470" y="1705" width="48" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_med_1" value="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="720" y="1888" width="30" height="24" as="geometry"/>
+    </mxCell>
+    <mxCell id="c_item_n_med" value="0..N" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#cbd5e1;fontColor=#334155;fontStyle=1;fontSize=11;align=center;verticalAlign=middle;" vertex="1" parent="1">
+      <mxGeometry x="690" y="1888" width="48" height="24" as="geometry"/>
+    </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
